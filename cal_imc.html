@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de IMC</title>
+    <!-- Dentro do head vai o javascript -->
+    <script type="text/javascript">
+        // Função para calcular o IMC
+        function calcularIMC() {
+            // Obtém os valores inseridos
+            var peso = parseFloat(form_imc.peso.value);
+            var altura = parseFloat(form_imc.altura.value);
+
+            // Calcula o IMC
+            var imc = peso / (altura * altura);
+
+            // Exibe o IMC e a classificação
+            form_imc.resultadoIMC.value = imc.toFixed(2);
+            form_imc.classificacao.value = obterClassificacaoIMC(imc);
+        }
+
+        // Função para limpar os campos
+        function limpar() {
+            form_imc.peso.value = '';
+            form_imc.altura.value = '';
+            form_imc.resultadoIMC.value = '';
+            form_imc.classificacao.value = '';
+        }
+    </script>
+    <!-- Término do javascript -->
+</head>
+<body>
+    <div style="background-color: aquamarine; font-size: 25px; width: 500px; border-radius:30px"><h1>Calculadora de IMC</h1></div>
+    <p>Calcule seu IMC (Índice de Massa Corporal).</p>
+
+    <!-- Formulário de entrada de peso e altura -->
+    <form name="form_imc">
+        <label for="peso">Peso (kg): </label>
+        <input name="peso" id="peso" type="text" required><br><br>
+        
+        <label for="altura">Altura (m): </label>
+        <input name="altura" id="altura" type="text" required><br><br>
+
+        <!-- Botão para calcular o IMC -->
+        <input type="button" onclick="calcularIMC()" value="Calcular IMC"><br><br>
+
+        <!-- Exibe o resultado e a classificação -->
+        <label for="resultadoIMC">IMC: </label>
+        <output name="resultadoIMC" id="resultadoIMC"></output><br><br>
+
+        <!-- Botão para limpar os campos -->
+        <input type="button" onclick="limpar()" value="Limpar">
+    </form>
+</body>
+</html> 
