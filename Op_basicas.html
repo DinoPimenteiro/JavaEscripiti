@@ -1,0 +1,81 @@
+<!DOCTYPE html> <!-- Define o tipo de documento como HTML5 -->
+<html lang="pt_BR"> <!-- Inicia o HTML e define o idioma da página como português brasileiro -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres da página como UTF-8 -->
+    <title>Calculadora</title> <!-- Define o título da página, que aparecerá na aba do navegador -->
+
+    <!-- Início do código JavaScript -->
+    <script type="text/javascript">
+        // Função para somar os dois números
+        function soma() {
+            // Pega os valores dos campos n1 e n2, converte para números e realiza a soma
+            form_calculadora.resultado.value = parseFloat(form_calculadora.n1.value) + parseFloat(form_calculadora.n2.value);
+        }
+
+        // Função para subtrair os dois números
+        function subtracao() {
+            // Pega os valores dos campos n1 e n2, converte para números e realiza a subtração
+            form_calculadora.resultado.value = parseFloat(form_calculadora.n1.value) - parseFloat(form_calculadora.n2.value);
+        }
+
+        // Função para multiplicar os dois números
+        function multiplicacao() {
+            // Pega os valores dos campos n1 e n2, converte para números e realiza a multiplicação
+            form_calculadora.resultado.value = parseFloat(form_calculadora.n1.value) * parseFloat(form_calculadora.n2.value);
+        }
+
+        // Função para dividir os dois números
+        function divisao() {
+            // Pega o valor do segundo número (n2) e converte para número
+            let divisor = parseFloat(form_calculadora.n2.value);
+            
+            // Verifica se o divisor é diferente de zero para evitar divisão por zero
+            if (divisor !== 0) {
+                // Realiza a divisão e mostra o resultado no campo de resultado
+                form_calculadora.resultado.value = parseFloat(form_calculadora.n1.value) / divisor;
+            } else {
+                // Se o divisor for zero, exibe uma mensagem de erro
+                form_calculadora.resultado.value = 'Erro: Divisão por zero';
+            }
+        }
+        
+        // Função para limpar os campos da calculadora
+        function limpar() {
+            // Limpa os campos de entrada e o campo de resultado
+            form_calculadora.n1.value = '';
+            form_calculadora.n2.value = '';
+            form_calculadora.resultado.value = '';
+        }
+    </script>
+    <!-- Fim do código JavaScript -->
+
+</head>
+
+<body>
+    <!-- Descrição do funcionamento da calculadora -->
+    <div style="background-color: aquamarine; font-size: 25px; width: 500px; border-radius:30px"><h1>Calculadora simples com operações básicas.</h1></div>
+
+    <!-- Formulário da calculadora -->
+    <form name="form_calculadora">
+        <!-- Campo para o primeiro número -->
+        Digite o primeiro número: <input name="n1" id="n1" type="text" autofocus><br>
+        
+        <!-- Campo para o segundo número -->
+        Digite o segundo número: <input name="n2" id="n2" type="text"><br><br>
+
+        <!-- Botões para as operações -->
+        <input type="button" onclick="soma()" value="Somar"> <!-- Botão para somar -->
+        <input type="button" onclick="subtracao()" value="Subtrair"> <!-- Botão para subtrair -->
+        <input type="button" onclick="multiplicacao()" value="Multiplicar"> <!-- Botão para multiplicar -->
+        <input type="button" onclick="divisao()" value="Dividir"><br><br> <!-- Botão para dividir -->
+
+        <!-- Exibe o resultado da operação -->
+        O resultado é: <output name="resultado" id="resultado"></output><br><br>
+
+        <!-- Botão para limpar os campos -->
+        <input type="button" onclick="limpar()" value="Limpar"> <!-- Botão para limpar -->
+    </form>
+</body>
+
+</html>
